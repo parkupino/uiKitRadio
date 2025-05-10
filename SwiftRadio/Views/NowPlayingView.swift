@@ -29,7 +29,7 @@ class NowPlayingView: UIView {
         button.isEnabled = false
         button.contentHorizontalAlignment = .left
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.accessibilityIdentifier = SharedAccessibility.StationsViewController.nowPlayingButton
+        button.accessibilityIdentifier = SharedAccessibility.StationsViewController.nowPlayingBottomButton
         return button
     }()
     

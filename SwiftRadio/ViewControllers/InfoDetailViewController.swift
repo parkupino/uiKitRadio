@@ -28,8 +28,8 @@ class InfoDetailViewController: UIViewController {
         stationImageView.accessibilityIdentifier = SharedAccessibility.InfoDetailViewController.stationnImageView
         stationNameLabel.accessibilityIdentifier = SharedAccessibility.InfoDetailViewController.stationNameLabel
         stationDescLabel.accessibilityIdentifier = SharedAccessibility.InfoDetailViewController.stationDescriptionLabel
-        stationLongDescTextView.accessibilityIdentifier = SharedAccessibility.InfoDetailViewController.stationLongDescriptionLabel
         okayButton.accessibilityIdentifier = SharedAccessibility.InfoDetailViewController.okayButton
+//        stationLongDescTextView.accessibilityIdentifier = SharedAccessibility.InfoDetailViewController.stationLongDescriptionLabel
     }
     
     // MARK: - UI Helpers

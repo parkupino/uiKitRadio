@@ -35,4 +35,14 @@ class SmokeTest: BaseTest {
         songLabel.waitForExistence(timeout: 2)
         XCTAssertEqual(songLabel.label, "Station Paused...")
     }
+    
+    func testOpenAboutView() {
+        let burgerButton = app.navigationBars.buttons["icon hamburger"]
+        let closeButton = app.buttons["menuViewCloseBtn"]
+        let aboutButton = app.buttons["menuViewAboutBtn"]
+        
+        burgerButton.tap()
+        aboutButton.waitForExistence(timeout: 3)
+        closeButton.tap()
+    }
 }

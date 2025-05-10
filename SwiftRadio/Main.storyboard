@@ -317,6 +317,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BY-Uw-fd7" userLabel="Share Button">
                                         <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="shareStationBtn"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="26" id="OdL-jY-2i8"/>
                                             <constraint firstAttribute="height" constant="26" id="WCg-3H-2ht"/>
@@ -332,6 +333,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yfv-H0-2Po" userLabel="InformationButton">
                                         <rect key="frame" x="36" y="4" width="22" height="22"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="moreInfoBtn"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="IbM-ag-eBx"/>
                                             <constraint firstAttribute="width" constant="22" id="LtX-vH-4q5"/>
@@ -446,6 +448,7 @@
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJI-ka-9k5">
                                 <rect key="frame" x="20" y="202" width="374" height="192"/>
+                                <accessibility key="accessibilityConfiguration" identifier="infoDetailLongDescrption"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="340" id="ulU-kP-hZB"/>
                                 </constraints>
@@ -528,6 +531,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xcode / Swift" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTb-3H-cug">
                                                 <rect key="frame" x="0.0" y="0.0" width="254" height="25"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="aboutAppViewLabel"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="Jjn-aw-6Ea"/>
                                                 </constraints>
@@ -537,6 +541,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio App" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gcd-mM-ZPe">
                                                 <rect key="frame" x="0.0" y="33" width="254" height="18"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="aboutAppViewVersionLabel"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -550,12 +555,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="350" id="L5G-S8-88G"/>
                                 </constraints>
-                                <string key="text">FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.
+                                <mutableString key="text">FEATURES: + Displays Artist, Track and Album/Station Art on lock screen.
 + Background Audio performance
 +iTunes API integration to automatically download album art
 + Loads and parses Icecast metadata (i.e. artist &amp; track names)
 + Ability to update stations from server without resubmitting to the app store.
-</string>
+</mutableString>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -569,7 +574,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBf-Hj-mZ8">
                                                 <rect key="frame" x="158.5" y="0.0" width="65" height="33"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="aboutAppViewWebSiteBtn"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="aboutAppViewWebsiteBtn"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Website">
