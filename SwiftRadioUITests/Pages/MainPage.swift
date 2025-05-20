@@ -143,4 +143,8 @@ final class MainPage: CommonPage {
     private var aboutAppViewOkayBtn: XCUIElement {
         app.buttons["aboutAppViewOkayBtn"]
     }
+    
+    private var aboutAppViewOkayBtn: XCUIElement {
+        app.buttons["aboutAppViewOkayBtn"]
+    }
 }
