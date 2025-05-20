@@ -25,6 +25,20 @@ class SmokeTest: BaseTest {
     }
     
     // Label 'Название песни' меняется на 'Station Paused...' после нажатия на Паузу
+    func testOpenRadioStation() {
+        let cell = app.cells.element(boundBy: 0)
+        let artist = app.staticTexts["artistLabel"]
+        cell.waitForExistence(timeout: 3)
+        cell.tap()
+        
+        artist.waitForExistence(timeout: 3)
+        
+        let artistLabel = app.staticTexts["artistLabel"].label
+        
+        let navButtonBack = app.navigationBars.buttons.element(boundBy: 0)
+        navButtonBack.tap()
+    }
+    
     func testStationPausedLabel() {
         let cell = app.cells.element(boundBy: 0)
         cell.tap()
@@ -39,6 +53,11 @@ class SmokeTest: BaseTest {
     
     // Burger menu открывается, кнопка About появляется в окне, закрыть окно
     func testOpencCloseBurgerMenuView() {
+        songLabel.waitForExistence(timeout: 2)
+        XCTAssertEqual(songLabel.label, "Station Paused...")
+    }
+    
+    func testOpenAboutView() {
         let burgerButton = app.navigationBars.buttons["icon hamburger"]
         let closeButton = app.buttons["menuViewCloseBtn"]
         let aboutButton = app.buttons["menuViewAboutBtn"]
@@ -88,5 +107,8 @@ class SmokeTest: BaseTest {
         
         XCTAssertTrue(artist.waitForExistence(timeout: 3))
         
+    }
+        aboutButton.waitForExistence(timeout: 3)
+        closeButton.tap()
     }
 }
