@@ -55,7 +55,8 @@ enum SharedAccessibility {
     
     enum InfoDetailViewController {
         
-        static let stationnImageView = "stationImageView"
+
+        static let stationImageView = "stationImageView"
         static let stationNameLabel = "stationNameLabel"
         static let stationDescriptionLabel = "stationDescriptionLabel"
         static let okayButton = "okayButton"
