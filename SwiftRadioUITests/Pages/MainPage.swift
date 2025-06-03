@@ -42,6 +42,12 @@ final class MainPage: CommonPage {
     }
     
     @discardableResult
+    func waitForFirstCellToAppear() -> Self {
+        XCTAssertTrue(cells.waitForExistence(timeout: 3))
+        return self
+    }
+    
+    @discardableResult
     func tapCell(index: Int) -> Self {
         app.cells.element(boundBy: index).tap()
     return self

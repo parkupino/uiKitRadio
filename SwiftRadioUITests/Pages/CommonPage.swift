@@ -10,14 +10,14 @@ import XCTest
 
 class CommonPage: XCTest {
     required init(app: XCUIApplication) {
-            self.app = app
-        }
+        self.app = app
+    }
         
     let app: XCUIApplication
     
     private var navigationBar: XCUIElement {
         app.navigationBars.buttons["Back"]
-        }
+    }
     
     func tapNavigationBackButton() {
         navigationBar.tap()

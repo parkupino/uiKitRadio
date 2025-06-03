@@ -25,7 +25,7 @@ final class AboutPage: CommonPage {
     private var aboutAppViewOkayBtn: XCUIElement {
         app.buttons["aboutAppViewOkayBtn"]
     }
-   private var cells: XCUIElement {
+    private var cells: XCUIElement {
         app.cells.element(boundBy: 0)
     
         }

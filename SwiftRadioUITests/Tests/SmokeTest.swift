@@ -8,7 +8,7 @@
 
 import XCTest
 
-class SmokeTest: BaseTest {
+final class SmokeTest: BaseTest {
     lazy var mainPage = MainPage(app: app)
     lazy var nowPlayingPage = NowPlayingPage(app: app)
     lazy var menuPage = MenuPage(app: app)
@@ -19,6 +19,7 @@ class SmokeTest: BaseTest {
     func testNowPlayingBottomBarIsEnabled() {
         mainPage
             .nowPlayingButtonIsEnabled(enabled: false)
+            .waitForFirstCellToAppear()
             .tapCell(index: 0)
         nowPlayingPage
             .tapNavigationBackButton()
@@ -29,6 +30,7 @@ class SmokeTest: BaseTest {
     // Открыть первую радиостанцию. проверить ArtistLabel. вернуться на Главную
     func testOpenRadioStation() {
         mainPage
+            .waitForFirstCellToAppear
             .tapCell(index: 0)
         nowPlayingPage
             .waitForArtistLabelToAppear()
@@ -38,6 +40,7 @@ class SmokeTest: BaseTest {
     // Label 'Название песни' меняется на 'Station Paused...' после нажатия на Паузу
     func testStationPausedLabel() {
         mainPage
+            .waitForFirstCellToAppear
             .tapCell(index: 0)
         nowPlayingPage
             .clickPlayPauseButton()
@@ -57,6 +60,7 @@ class SmokeTest: BaseTest {
     // More Info окно открывается, Имя станции отображается, закрыть окно
     func testOpenCloseInfoView() {
         mainPage
+            .waitForFirstCellToAppear
             .tapCell(index: 0)
         nowPlayingPage
             .waitForArtistLabelToAppear()
@@ -71,6 +75,7 @@ class SmokeTest: BaseTest {
     // About App окно открывается, Лого приложения отображается, закрыть окно
     func testOpenCloseAboutView() {
         mainPage
+            .waitForFirstCellToAppear
             .tapCell(index: 0)
         nowPlayingPage
             .tapNowPlayingRadioLogo()
