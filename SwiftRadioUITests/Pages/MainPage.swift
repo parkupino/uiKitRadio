@@ -12,7 +12,7 @@ final class MainPage: CommonPage {
     private var burgerMenuButton: XCUIElement {
         app.buttons["icon hamburger"]
     }
-    
+  
     private var cells: XCUIElement {
         app.cells.element(boundBy: 0)
         
@@ -58,7 +58,5 @@ final class MainPage: CommonPage {
         burgerMenuButton.tap()
         return self
     }
-    
+  
 }
-
-
