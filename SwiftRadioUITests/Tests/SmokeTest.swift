@@ -30,7 +30,7 @@ final class SmokeTest: BaseTest {
     // Открыть первую радиостанцию. проверить ArtistLabel. вернуться на Главную
     func testOpenRadioStation() {
         mainPage
-            .waitForFirstCellToAppear
+            .waitForFirstCellToAppear()
             .tapCell(index: 0)
         nowPlayingPage
             .waitForArtistLabelToAppear()
@@ -40,7 +40,7 @@ final class SmokeTest: BaseTest {
     // Label 'Название песни' меняется на 'Station Paused...' после нажатия на Паузу
     func testStationPausedLabel() {
         mainPage
-            .waitForFirstCellToAppear
+            .waitForFirstCellToAppear()
             .tapCell(index: 0)
         nowPlayingPage
             .clickPlayPauseButton()
@@ -60,7 +60,7 @@ final class SmokeTest: BaseTest {
     // More Info окно открывается, Имя станции отображается, закрыть окно
     func testOpenCloseInfoView() {
         mainPage
-            .waitForFirstCellToAppear
+            .waitForFirstCellToAppear()
             .tapCell(index: 0)
         nowPlayingPage
             .waitForArtistLabelToAppear()
@@ -75,7 +75,7 @@ final class SmokeTest: BaseTest {
     // About App окно открывается, Лого приложения отображается, закрыть окно
     func testOpenCloseAboutView() {
         mainPage
-            .waitForFirstCellToAppear
+            .waitForFirstCellToAppear()
             .tapCell(index: 0)
         nowPlayingPage
             .tapNowPlayingRadioLogo()
