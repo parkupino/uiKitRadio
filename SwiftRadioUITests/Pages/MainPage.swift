@@ -9,7 +9,10 @@ import XCTest
 
 final class MainPage: CommonPage {
 
-//  MainPage
+    private var burgerMenuButton: XCUIElement {
+        app.buttons["icon hamburger"]
+    }
+  
     private var cells: XCUIElement {
         app.cells.element(boundBy: 0)
         
@@ -28,125 +31,32 @@ final class MainPage: CommonPage {
         app.staticTexts["nowPlayingSubtitleLabel"]
     }
 
-//  MenuView
-    private var menuViewCloseBtn: XCUIElement {
-        app.buttons["menuViewCloseBtn"]
-    }
-    
-    private var menuViewRadioLogo: XCUIElement {
-        app.images["menuViewRadioLogo"]
-    }
-    
-    private var menuViewAboutBtn: XCUIElement {
-        app.buttons["menuViewAboutBtn"]
-    }
-    
-    private var menuWebsiteBtn: XCUIElement {
-        app.buttons["menuWebsiteBtn"]
-    }
-    
-    private var menuViewNames: XCUIElement {
-        app.staticTexts["menuViewNames"]
-    }
-
-//  NowPlayingView
-    private var albumImageView: XCUIElement {
-        app.images["albumImageView"]
-    }
-    
-    private var stationsDescriptionLabel: XCUIElement {
-        app.staticTexts["stationsDescriptionLabel"]
-    }
-    
-    private var previousButton: XCUIElement {
-        app.buttons["previousButton"]
-    }
-    
-    private var playingButton: XCUIElement {
-        app.buttons["playingButton"]
-    }
-    
-    private var stopButton: XCUIElement {
-        app.buttons["stopButton"]
-    }
-    
-    private var nextButton: XCUIElement {
-        app.buttons["nextButton"]
-    }
-    
-    private var mpVolumeSlider: XCUIElement {
-        app.sliders["mpVolumeSlider"]
-    }
-    
-    private var songLabel: XCUIElement {
-        app.staticTexts["songLabel"]
-    }
-    
-    private var artistLabel: XCUIElement {
-        app.staticTexts["artistLabel"]
-    }
-    
-    private var nowPlayingRadioLogo: XCUIElement {
-        app.images["nowPlayingRadioLogo"]
-    }
-    
-    private var airPlayButton: XCUIElement {
-        app.buttons["airPlayButton"]
-    }
-    
-    private var shareStationBtn: XCUIElement {
-        app.buttons["shareStationBtn"]
-    }
-    
-    private var moreInfoBtn: XCUIElement {
-        app.buttons["moreInfoBtn"]
-    }
-    
-//  InfoDetailView
-    private var stationImageView: XCUIElement {
-        app.images["stationImageView"]
-    }
-    
-    private var stationNameLabel: XCUIElement {
-        app.staticTexts["stationNameLabel"]
-    }
-    
-    private var stationDescriptionLabel: XCUIElement {
-        app.staticTexts["stationDescriptionLabel"]
-    }
-    
-    private var okayButton: XCUIElement {
-        app.buttons["okayButton"]
-    }
-    
-//  AboutView
-    private var aboutAppViewRadioLogo: XCUIElement {
-        app.images["aboutAppViewRadioLogo"]
-    }
-    
-    private var aboutAppViewLabel: XCUIElement {
-        app.staticTexts["aboutAppViewLabel"]
-    }
-    
-    private var aboutAppViewVersionLabel: XCUIElement {
-        app.staticTexts["aboutAppViewVersionLabel"]
-    }
-    
-    private var aboutAppViewWebsiteBtn: XCUIElement {
-        app.buttons["aboutViewWebsiteBtn"]
-    }
-    
-    private var aboutAppViewEmailMeBtn: XCUIElement {
-        app.buttons["aboutViewEmailMeBtn"]
-    }
-    
-    private var aboutAppViewOkayBtn: XCUIElement {
-        app.buttons["aboutAppViewOkayBtn"]
-    }
-   private var cells: XCUIElement {
-        app.cells.element(boundBy: 0)
-    
+    @discardableResult
+    func nowPlayingButtonIsEnabled(enabled: Bool) -> Self {
+        if enabled {
+            XCTAssertTrue(nowPlayingBottomButton.isEnabled)
+        } else {
+            XCTAssertFalse(nowPlayingBottomButton.isEnabled)
         }
+        return self
+    }
+    
+    @discardableResult
+    func waitForFirstCellToAppear() -> Self {
+        XCTAssertTrue(cells.waitForExistence(timeout: 3))
+        return self
+    }
+    
+    @discardableResult
+    func tapCell(index: Int) -> Self {
+        app.cells.element(boundBy: index).tap()
+    return self
+    }
+    
+    @discardableResult
+    func tapBurgerButton() -> Self {
+        burgerMenuButton.tap()
+        return self
+    }
+  
 }
-
-
