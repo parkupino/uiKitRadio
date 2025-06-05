@@ -22,6 +22,4 @@ class CommonPage: XCTest {
     func tapNavigationBackButton() {
         navigationBar.tap()
     }
-    
-    
 }
