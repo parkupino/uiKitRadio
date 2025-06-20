@@ -9,40 +9,35 @@
 import XCTest
 
 final class SmokeTest: BaseTest {
-    lazy var mainPage = MainPage(app: app)
-    lazy var nowPlayingPage = NowPlayingPage(app: app)
-    lazy var menuPage = MenuPage(app: app)
-    lazy var infoPage = InfoPage(app: app)
-    lazy var aboutPage = AboutPage(app: app)
     
     // Bottom bar плеер становится активным после запуска радио станции
     func testNowPlayingBottomBarIsEnabled() {
-        mainPage
+        pages.mainPage()
             .nowPlayingButtonIsEnabled(enabled: false)
             .waitForFirstCellToAppear()
             .tapCell(index: 0)
-        nowPlayingPage
+        pages.nowPlayingPage()
             .tapNavigationBackButton()
-        mainPage
+        pages.mainPage()
             .nowPlayingButtonIsEnabled(enabled: true)
     }
     
     // Открыть первую радиостанцию. проверить ArtistLabel. вернуться на Главную
     func testOpenRadioStation() {
-        mainPage
+        pages.mainPage()
             .waitForFirstCellToAppear()
             .tapCell(index: 0)
-        nowPlayingPage
+        pages.nowPlayingPage()
             .waitForArtistLabelToAppear()
             .tapNavigationBackButton()
     }
 
     // Label 'Название песни' меняется на 'Station Paused...' после нажатия на Паузу
     func testStationPausedLabel() {
-        mainPage
+        pages.mainPage()
             .waitForFirstCellToAppear()
             .tapCell(index: 0)
-        nowPlayingPage
+        pages.nowPlayingPage()
             .clickPlayPauseButton()
             .waitForSongLabelToAppear()
             .checkStationPausedLabel()
@@ -50,41 +45,40 @@ final class SmokeTest: BaseTest {
     
     // Burger menu открывается, кнопка About появляется в окне, закрыть окно
     func testOpencCloseBurgerMenuView() {
-        mainPage
+        pages.mainPage()
             .tapBurgerButton()
-        menuPage
+        pages.menuPage()
             .waitForAboutButtonToAppear()
             .tapCloseMenuButton()
     }
     
     // More Info окно открывается, Имя станции отображается, закрыть окно
     func testOpenCloseInfoView() {
-        mainPage
+        pages.mainPage()
             .waitForFirstCellToAppear()
             .tapCell(index: 0)
-        nowPlayingPage
+        pages.nowPlayingPage()
             .waitForArtistLabelToAppear()
             .tapMoreInfoButton()
-        infoPage
+        pages.infoPage()
             .waitForStationNameLabel()
             .tapOkayButton()
-        nowPlayingPage
+        pages.nowPlayingPage()
             .waitForArtistLabelToAppear()
     }
     
     // About App окно открывается, Лого приложения отображается, закрыть окно
     func testOpenCloseAboutView() {
-        mainPage
+        pages.mainPage()
             .waitForFirstCellToAppear()
             .tapCell(index: 0)
-        nowPlayingPage
+        pages.nowPlayingPage()
             .tapNowPlayingRadioLogo()
-        aboutPage
+        pages.aboutPage()
             .waitForAboutAppViewRadioLogo()
             .tapAboutAppViewOkayBtn()
-        nowPlayingPage
+        pages.nowPlayingPage()
             .waitForSongLabelToAppear()
-        
     }
     
 }
