@@ -12,6 +12,10 @@ final class MainPage: CommonPage {
     private var burgerMenuButton: XCUIElement {
         app.buttons["icon hamburger"]
     }
+    
+    private var nowPlayingBarButton: XCUIElement {
+        app.buttons["btn nowPlaying"]
+    }
   
     private var cells: XCUIElement {
         app.cells.element(boundBy: 0)
@@ -42,6 +46,24 @@ final class MainPage: CommonPage {
     }
     
     @discardableResult
+    func waitForNowPlayingBarButton() -> Self {
+        XCTAssertTrue(nowPlayingBarButton.waitForExistence(timeout: 3))
+        return self
+    }
+    
+    @discardableResult
+    func tapNowPlayingBottomButton() -> Self {
+        nowPlayingBottomButton.tap()
+        return self
+    }
+    
+    @discardableResult
+    func tapNowPlayingBarButton() -> Self {
+        nowPlayingBarButton.tap()
+        return self
+    }
+    
+    @discardableResult
     func waitForFirstCellToAppear() -> Self {
         XCTAssertTrue(cells.waitForExistence(timeout: 3))
         return self
@@ -56,6 +78,14 @@ final class MainPage: CommonPage {
     @discardableResult
     func tapBurgerButton() -> Self {
         burgerMenuButton.tap()
+        return self
+    }
+    
+    @discardableResult
+    func PullToRefresh() -> Self {
+        let start = app.cells.element(boundBy: 0)
+        let end = app.cells.element(boundBy: 4)
+        start.press(forDuration: 0.1, thenDragTo: end)
         return self
     }
   
