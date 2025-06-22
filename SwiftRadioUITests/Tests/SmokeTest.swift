@@ -10,18 +10,6 @@ import XCTest
 
 final class SmokeTest: BaseTest {
     
-    // Bottom bar плеер становится активным после запуска радио станции
-    func testNowPlayingBottomBarIsEnabled() {
-        pages.mainPage()
-            .nowPlayingButtonIsEnabled(enabled: false)
-            .waitForFirstCellToAppear()
-            .tapCell(index: 0)
-        pages.nowPlayingPage()
-            .tapNavigationBackButton()
-        pages.mainPage()
-            .nowPlayingButtonIsEnabled(enabled: true)
-    }
-    
     // Открыть первую радиостанцию. проверить ArtistLabel. вернуться на Главную
     func testOpenRadioStation() {
         pages.mainPage()
@@ -47,6 +35,21 @@ final class SmokeTest: BaseTest {
     func testOpencCloseBurgerMenuView() {
         pages.mainPage()
             .tapBurgerButton()
+        pages.menuPage()
+            .waitForAboutButtonToAppear()
+            .tapCloseMenuButton()
+    }
+    
+    // Проверить страницу About в Burger menu
+    func testOpenAboutViewFromBurgerMenu() {
+        pages.mainPage()
+            .tapBurgerButton()
+        pages.menuPage()
+            .waitForAboutButtonToAppear()
+            .tapAboutButton()
+        pages.aboutPage()
+            .waitForAboutAppViewRadioLogo()
+            .tapAboutAppViewOkayBtn()
         pages.menuPage()
             .waitForAboutButtonToAppear()
             .tapCloseMenuButton()

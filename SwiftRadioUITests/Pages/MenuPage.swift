@@ -33,4 +33,10 @@ final class MenuPage: CommonPage {
         menuViewCloseBtn.tap()
         return self
     }
+    
+    @discardableResult
+    func tapAboutButton() -> Self {
+        menuViewAboutBtn.tap()
+        return self
+    }
 }
