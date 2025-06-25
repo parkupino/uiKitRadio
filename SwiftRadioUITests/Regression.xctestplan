@@ -20,6 +20,7 @@
     {
       "skippedTests" : [
         "BaseTest",
+        "SmokeTest",
         "SwiftRadioUITests"
       ],
       "target" : {

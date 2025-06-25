@@ -29,4 +29,11 @@ final class InfoPage: CommonPage {
         okayButton.tap()
         return self
     }
+    
+    @discardableResult
+    func assertInfoStationPageInNavBar() -> Self {
+        XCTAssertEqual(navigationBarBackButton.label, stationNameLabel.label)
+        return self
+    }
+    
 }

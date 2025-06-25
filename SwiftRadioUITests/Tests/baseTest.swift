@@ -10,7 +10,7 @@ import XCTest
 class BaseTest: XCTestCase {
     let app = XCUIApplication()
     lazy var pages: PageFactory! = PageFactory(app: app)
-    lazy var genericPage: PageObjectsFactory! = PageObjectsFactory(app: app)
+//    lazy var genericPage: PageObjectsFactory! = PageObjectsFactory(app: app)
     
         override func setUp() {
             super.setUp()
@@ -20,12 +20,12 @@ class BaseTest: XCTestCase {
             app.launch()
         }
         
-        override func tearDown() {
-            
-            pages = nil
-            genericPage = nil
-            super.tearDown()
-        }
+//        override func tearDown() {
+//            
+//            pages = nil
+//            genericPage = nil
+//            super.tearDown()
+//        }
     
 }
 

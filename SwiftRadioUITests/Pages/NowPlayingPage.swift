@@ -2,6 +2,10 @@ import XCTest
 
 final class NowPlayingPage: CommonPage {
    
+//    private var navigationBarTitle: XCUIElement {
+//        app.navigationBars.element.staticTexts.element(boundBy: 0)
+//    }
+    
     private var albumImageView: XCUIElement {
         app.images["albumImageView"]
     }
@@ -61,6 +65,12 @@ final class NowPlayingPage: CommonPage {
     }
     
     @discardableResult
+    func clickStopButton() -> Self {
+        stopButton.tap()
+        return self
+    }
+    
+    @discardableResult
     func waitForArtistLabelToAppear() -> Self {
         artistLabel.waitForExistence(timeout: 3)
         return self
@@ -75,6 +85,12 @@ final class NowPlayingPage: CommonPage {
     @discardableResult
     func checkStationPausedLabel() -> Self {
         XCTAssertEqual(songLabel.label, "Station Paused...")
+        return self
+    }
+    
+    @discardableResult
+    func checkStationStoppedLabelEqualsNavBarLabel() -> Self {
+        XCTAssertEqual(navigationBarTitle.label, songLabel.label)
         return self
     }
     
