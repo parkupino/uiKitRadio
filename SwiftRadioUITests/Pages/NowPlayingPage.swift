@@ -2,10 +2,6 @@ import XCTest
 
 final class NowPlayingPage: CommonPage {
    
-//    private var navigationBarTitle: XCUIElement {
-//        app.navigationBars.element.staticTexts.element(boundBy: 0)
-//    }
-    
     private var albumImageView: XCUIElement {
         app.images["albumImageView"]
     }

@@ -17,7 +17,7 @@ final class NowPlayingPageTest: BaseTest {
             .tapCell(index: 0)
         pages.nowPlayingPage()
             .waitForArtistLabelToAppear()
-            .tapNavigationBackButton()
+            .tapNavigationBarBackButton()
     }
     
     // Label 'Название песни' меняется на 'Station Paused...' после нажатия на Паузу
