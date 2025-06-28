@@ -18,6 +18,11 @@ class BaseTest: XCTestCase {
             continueAfterFailure = false // хард ассерты. По дефолту используются софт
             app.launch()
         }
+    
+        override func tearDown() {
+            pages = nil
+        super.tearDown()
+    }
 }
 
 
