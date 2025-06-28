@@ -15,11 +15,15 @@ class CommonPage: XCTest {
         
     let app: XCUIApplication
     
-    private var navigationBar: XCUIElement {
-        app.navigationBars.buttons["Back"]
+    var navigationBarTitle: XCUIElement {
+        app.navigationBars.element.staticTexts.element(boundBy: 0)
     }
     
-    func tapNavigationBackButton() {
-        navigationBar.tap()
+    var navigationBarBackButton: XCUIElement{
+        app.navigationBars.buttons.element(boundBy: 0)
+    }
+    
+    func tapNavigationBarBackButton() {
+        navigationBarBackButton.tap()
     }
 }

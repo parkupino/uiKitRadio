@@ -61,6 +61,12 @@ final class NowPlayingPage: CommonPage {
     }
     
     @discardableResult
+    func clickStopButton() -> Self {
+        stopButton.tap()
+        return self
+    }
+    
+    @discardableResult
     func waitForArtistLabelToAppear() -> Self {
         artistLabel.waitForExistence(timeout: 3)
         return self
@@ -75,6 +81,12 @@ final class NowPlayingPage: CommonPage {
     @discardableResult
     func checkStationPausedLabel() -> Self {
         XCTAssertEqual(songLabel.label, "Station Paused...")
+        return self
+    }
+    
+    @discardableResult
+    func checkStationStoppedLabelEqualsNavBarLabel() -> Self {
+        XCTAssertEqual(navigationBarTitle.label, songLabel.label)
         return self
     }
     

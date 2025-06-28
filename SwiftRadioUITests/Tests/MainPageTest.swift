@@ -10,6 +10,12 @@ import XCTest
 
 final class MainPageTest: BaseTest {
     
+    // Smoke. Список радиостанций отображается при открытии приложения
+    func testListOfStationsIsShownOnAppLaunch() {
+        pages.mainPage()
+            .waitForFirstCellToAppear()
+    }
+    
     // Bottom bar плеер становится активным после запуска радио станции
     func testNowPlayingBottomBarIsEnabled() {
         pages.mainPage()
@@ -17,7 +23,7 @@ final class MainPageTest: BaseTest {
             .waitForFirstCellToAppear()
             .tapCell(index: 0)
         pages.nowPlayingPage()
-            .tapNavigationBackButton()
+            .tapNavigationBarBackButton()
         pages.mainPage()
             .nowPlayingButtonIsEnabled(enabled: true)
     }
@@ -26,7 +32,7 @@ final class MainPageTest: BaseTest {
     func testPulltoRefreshStations() {
         pages.mainPage()
             .waitForFirstCellToAppear()
-            .PullToRefresh()
+            .pullToRefresh()
             .waitForFirstCellToAppear()
     }
     
@@ -36,13 +42,13 @@ final class MainPageTest: BaseTest {
             .waitForFirstCellToAppear()
             .tapCell(index: 0)
         pages.nowPlayingPage()
-            .tapNavigationBackButton()
+            .tapNavigationBarBackButton()
         pages.mainPage()
             .waitForNowPlayingBarButton()
             .tapNowPlayingBarButton()
         pages.nowPlayingPage()
             .waitForArtistLabelToAppear()
-            .tapNavigationBackButton()
+            .tapNavigationBarBackButton()
         pages.mainPage()
             .nowPlayingButtonIsEnabled(enabled: true)
             .tapNowPlayingBottomButton()

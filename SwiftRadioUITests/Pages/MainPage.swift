@@ -82,7 +82,7 @@ final class MainPage: CommonPage {
     }
     
     @discardableResult
-    func PullToRefresh() -> Self {
+    func pullToRefresh() -> Self {
         let start = app.cells.element(boundBy: 0)
         let end = app.cells.element(boundBy: 4)
         start.press(forDuration: 0.1, thenDragTo: end)
