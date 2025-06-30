@@ -38,7 +38,10 @@
       </MacroExpansion>
       <TestPlans>
          <TestPlanReference
-            reference = "container:SwiftRadioUITests/Regression.xctestplan"
+            reference = "container:SwiftRadioUITests/Regression.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Smoke.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
