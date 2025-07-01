@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "AABF0840-9031-4C44-B292-7BEA8F53D612",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "BaseTest",
+        "MainPageTest\/testNowPlayingBottomBarIsEnabled()",
+        "MainPageTest\/testOpenPlayerWithNowPlayingButton()",
+        "MainPageTest\/testPulltoRefreshStations()",
+        "MenuPageTest\/testOpenAboutViewFromBurgerMenu()",
+        "NowPlayingPageTest\/testStationPausedLabel()",
+        "NowPlayingPageTest\/testStationStopedLabel()",
+        "StationInfoPageTest\/testVerifyStationName()"
+      ],
+      "target" : {
+        "containerPath" : "container:SwiftRadio.xcodeproj",
+        "identifier" : "2C5545B91C1124DE00728469",
+        "name" : "SwiftRadioUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

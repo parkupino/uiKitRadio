@@ -107,7 +107,9 @@
 		5FDEE0211F72FF980064333C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6258DCD722D93A3500166C65 /* LogoShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoShareView.swift; sourceTree = "<group>"; };
 		6258DCD922D93A5400166C65 /* LogoShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoShareView.xib; sourceTree = "<group>"; };
+		870CA42A2E12CFF800FBCA70 /* Regression.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Regression.xctestplan; path = SwiftRadioUITests/Regression.xctestplan; sourceTree = "<group>"; };
 		870DB2E72DCA3A3E00CA3338 /* SharedAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAccessibility.swift; sourceTree = "<group>"; };
+		878B9A552E12D20D00BD7C4E /* Smoke.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Smoke.xctestplan; sourceTree = "<group>"; };
 		9409E1161ABF6FEA00312E2B /* SwiftRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9409E11A1ABF6FEA00312E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9409E11B1ABF6FEA00312E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +199,8 @@
 		9409E10D1ABF6FE900312E2B = {
 			isa = PBXGroup;
 			children = (
+				878B9A552E12D20D00BD7C4E /* Smoke.xctestplan */,
+				870CA42A2E12CFF800FBCA70 /* Regression.xctestplan */,
 				9409E1181ABF6FEA00312E2B /* SwiftRadio */,
 				2C5545BB1C1124DE00728469 /* SwiftRadioUITests */,
 				9409E1171ABF6FEA00312E2B /* Products */,
