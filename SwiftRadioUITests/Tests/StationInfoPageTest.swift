@@ -12,31 +12,49 @@ final class StationInfoPageTest: BaseTest {
     
     // Smoke. More Info окно открывается, Имя станции отображается, закрыть окно на 'Okay'
     func testOpenCloseInfoView() {
-        pages.mainPage()
-            .waitForFirstCellToAppear()
-            .tapCell(index: 0)
-        pages.nowPlayingPage()
-            .waitForArtistLabelToAppear()
-            .tapMoreInfoButton()
-        pages.infoPage()
-            .waitForStationNameLabel()
-            .tapOkayButton()
-        pages.nowPlayingPage()
-            .waitForArtistLabelToAppear()
+        step("выбираем первую станцию") {
+            pages.mainPage()
+                .waitForFirstCellToAppear()
+                .tapCell(index: 0)
+        }
+        step("нажимаем на кнопку Info") {
+            pages.nowPlayingPage()
+                .waitForArtistLabelToAppear()
+                .tapMoreInfoButton()
+        }
+        step("нажимаем на кнопку Okay") {
+            pages.infoPage()
+                .waitForStationNameLabel()
+                .tapOkayButton()
+        }
+        step("ожидаем появления имени артиста") {
+            pages.nowPlayingPage()
+                .waitForArtistLabelToAppear()
+        }
     }
     
     // Label 'Название Радиостанции' совпадает с label в кнопке '<-Название радиостанции'
     func testVerifyStationName() {
-        pages.mainPage()
-            .waitForFirstCellToAppear()
-            .tapCell(index: 0)
-        pages.nowPlayingPage()
-            .waitForArtistLabelToAppear()
-            .tapMoreInfoButton()
-        pages.infoPage()
-            .waitForStationNameLabel()
-            .assertInfoStationPageInNavBar()
-            .tapNavigationBarBackButton()
+        step("выбираем первую станцию") {
+            pages.mainPage()
+                .waitForFirstCellToAppear()
+                .tapCell(index: 0)
+        }
+        step("нажимаем на кнопку Info") {
+            pages.nowPlayingPage()
+                .waitForArtistLabelToAppear()
+                .tapMoreInfoButton()
+        }
+        step("проверяем название Радиостанции в Navigation bar") {
+            pages.infoPage()
+                .waitForStationNameLabel()
+                .assertInfoStationPageInNavBar()
+        }
+        step("нажимаем кнопку Back") {
+            pages.infoPage()
+                .tapNavigationBarBackButton()
+        }
+        
     }
     
 }

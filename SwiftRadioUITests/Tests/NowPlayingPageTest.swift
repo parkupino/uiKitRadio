@@ -12,32 +12,44 @@ final class NowPlayingPageTest: BaseTest {
     
     // Smoke. Открыть первую радиостанцию. проверить ArtistLabel. вернуться на Главную
     func testOpenRadioStation() {
-        pages.mainPage()
-            .waitForFirstCellToAppear()
-            .tapCell(index: 0)
-        pages.nowPlayingPage()
-            .waitForArtistLabelToAppear()
-            .tapNavigationBarBackButton()
+        step("выбираем первую станцию") {
+            pages.mainPage()
+                .waitForFirstCellToAppear()
+                .tapCell(index: 0)
+        }
+        step("нажимаем кнопку Back") {
+            pages.nowPlayingPage()
+                .waitForArtistLabelToAppear()
+                .tapNavigationBarBackButton()
+        }
     }
     
     // Label 'Название песни' меняется на 'Station Paused...' после нажатия на Паузу
     func testStationPausedLabel() {
-        pages.mainPage()
-            .waitForFirstCellToAppear()
-            .tapCell(index: 0)
-        pages.nowPlayingPage()
-            .clickPlayPauseButton()
-            .waitForSongLabelToAppear()
-            .checkStationPausedLabel()
+        step("выбираем первую станцию") {
+            pages.mainPage()
+                .waitForFirstCellToAppear()
+                .tapCell(index: 0)
+        }
+        step("проверяем имя станции при Pause") {
+            pages.nowPlayingPage()
+                .clickPlayPauseButton()
+                .waitForSongLabelToAppear()
+                .checkStationPausedLabel()
+        }
     }
     
     // Label 'Название песни' меняется на 'Название радиостанции' после нажатия на Stop
     func testStationStopedLabel() {
-        pages.mainPage()
-            .waitForFirstCellToAppear()
-            .tapCell(index: 0)
-        pages.nowPlayingPage()
-            .clickStopButton()
-            .checkStationStoppedLabelEqualsNavBarLabel()
+        step("выбираем первую станцию") {
+            pages.mainPage()
+                .waitForFirstCellToAppear()
+                .tapCell(index: 0)
+        }
+        step("проверяем имя станции при Stop") {
+            pages.nowPlayingPage()
+                .clickStopButton()
+                .checkStationStoppedLabelEqualsNavBarLabel()
+        }
     }
 }
