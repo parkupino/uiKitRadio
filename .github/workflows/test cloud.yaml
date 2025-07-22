@@ -1,4 +1,4 @@
-name: Self Hosted Run test
+name: Cloud Run test
 
 on:
   workflow_dispatch:
