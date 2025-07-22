@@ -1,0 +1,38 @@
+name: Self Hosted Run test
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_tests:
+        description: "Запускать тесты?"
+        required: true
+        default: "true"
+        type: boolean
+
+env:
+  PROJECT: 'SwiftRadio.xcodeproj'
+  SCHEME: 'SwiftRadioUITests'
+  DERIVED_DATA_PATH: 'DerivedData'
+  TEST_RESULTS: './TestResults.xcresult'
+  ALLURE_RESULTS: 'allure-results'
+  SIMULATOR_VERSION: '18.5'
+  SIMULATOR_NAME: 'iPhone 16'
+
+jobs:
+  test:
+    name: Run test
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Run test
+        run: |
+          set -o pipefail
+          xcodebuild test \
+          -project ${{ env.PROJECT }} \
+          -scheme ${{ env.SCHEME }} \
+          -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
+          CODE_SIGNING_ALLOWED='NO' \
+          | xcbeautify --renderer github-actions

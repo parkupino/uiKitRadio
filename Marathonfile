@@ -1,0 +1,34 @@
+name: "ui tests"
+outputDir: "report/"
+retryStrategy:
+  type: "no-retry"
+poolingStrategy:
+  type: "omni"
+batchingStrategy:
+  type: "isolate"
+debug: false
+vendorConfiguration:
+  type: "iOS"
+  devices: "devices.yaml"
+  bundle:
+    application: "DerivedData/Build/Products/Debug-iphonesimulator/SwiftRadio.app"
+    testApplication: "DerivedData/Build/Products/Debug-iphonesimulator/SwiftRadioUITests-Runner.app/PlugIns/SwiftRadioUITests.xctest"
+    testType: xcuitest
+  lifecycle:
+    onPrepare:
+      - ERASE
+    onDispose:
+      - SHUTDOWN
+  screenRecordConfiguration:
+    screenshotConfiguration:
+      enabled: false
+    videoConfiguration:
+      enabled: false
+filteringConfiguration:
+  allowlist:
+    - type: "simple-class-name"
+      regex: ".*"
+  blocklist:
+    - type: "method"
+      regex: "testCrash"
+ignoreFailures: true
