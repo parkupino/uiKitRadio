@@ -47,7 +47,9 @@ final class MainPage: CommonPage {
     
     @discardableResult
     func waitForNowPlayingBarButton() -> Self {
-        XCTAssertTrue(nowPlayingBarButton.waitForExistence(timeout: 3))
+        XCTContext.runActivity(named: "Wait for Now Playing Bar Button") { _ in
+            XCTAssertTrue(nowPlayingBarButton.waitForExistence(timeout: 3), "ошибка.нет объекта")
+        }
         return self
     }
     

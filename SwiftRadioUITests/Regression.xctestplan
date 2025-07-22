@@ -4,12 +4,28 @@
       "id" : "81E0F760-D83B-497F-B7F3-2FA8B74D68E7",
       "name" : "Configuration 1",
       "options" : {
+        "environmentVariableEntries" : [
+          {
+            "key" : "value",
+            "value" : "1.1"
+          }
+        ]
+      }
+    },
+    {
+      "id" : "21B79A96-8BE9-4EA9-BCC6-00DCCFBB625B",
+      "name" : "Configuration 2",
+      "options" : {
 
       }
     }
   ],
   "defaultOptions" : {
-
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "Hhfkd hfhdjf"
+      }
+    ]
   },
   "testTargets" : [
     {

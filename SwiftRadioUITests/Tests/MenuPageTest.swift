@@ -12,25 +12,37 @@ final class MenuPageTest: BaseTest {
     
     // Smoke. Burger menu открывается, кнопка About появляется в окне, закрыть окно
     func testOpencCloseBurgerMenuView() {
-        pages.mainPage()
-            .tapBurgerButton()
-        pages.menuPage()
-            .waitForAboutButtonToAppear()
-            .tapCloseMenuButton()
+        step("нажимаем на Burger меню") {
+            pages.mainPage()
+                .tapBurgerButton()
+        }
+        step("нажимаем на Close") {
+            pages.menuPage()
+                .waitForAboutButtonToAppear()
+                .tapCloseMenuButton()
+        }
     }
     
     // Проверить страницу About в Burger menu
     func testOpenAboutViewFromBurgerMenu() {
-        pages.mainPage()
-            .tapBurgerButton()
-        pages.menuPage()
-            .waitForAboutButtonToAppear()
-            .tapAboutButton()
-        pages.aboutPage()
-            .waitForAboutAppViewRadioLogo()
-            .tapAboutAppViewOkayBtn()
-        pages.menuPage()
-            .waitForAboutButtonToAppear()
-            .tapCloseMenuButton()
+        step("нажимаем на Burger меню") {
+            pages.mainPage()
+                .tapBurgerButton()
+        }
+        step("нажимаем на About") {
+            pages.menuPage()
+                .waitForAboutButtonToAppear()
+                .tapAboutButton()
+        }
+        step("нажимаем на Okay") {
+            pages.aboutPage()
+                .waitForAboutAppViewRadioLogo()
+                .tapAboutAppViewOkayBtn()
+        }
+        step("нажимаем на Close") {
+            pages.menuPage()
+                .waitForAboutButtonToAppear()
+                .tapCloseMenuButton()
+        }
     }
 }

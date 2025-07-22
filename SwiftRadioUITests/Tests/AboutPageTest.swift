@@ -12,15 +12,23 @@ final class AboutPageTest: BaseTest {
     
     // Smoke. About App окно открывается, Лого приложения отображается, закрыть окно
     func testOpenCloseAboutView() {
-        pages.mainPage()
-            .waitForFirstCellToAppear()
-            .tapCell(index: 0)
-        pages.nowPlayingPage()
-            .tapNowPlayingRadioLogo()
-        pages.aboutPage()
-            .waitForAboutAppViewRadioLogo()
-            .tapAboutAppViewOkayBtn()
-        pages.nowPlayingPage()
-            .waitForSongLabelToAppear()
+        step("выбираем первую станцию") {
+            pages.mainPage()
+                .waitForFirstCellToAppear()
+                .tapCell(index: 0)
+        }
+        step("нажимаем на Radio Logo") {
+            pages.nowPlayingPage()
+                .tapNowPlayingRadioLogo()
+        }
+        step("нажимаем кнопку Okay") {
+            pages.aboutPage()
+                .waitForAboutAppViewRadioLogo()
+                .tapAboutAppViewOkayBtn()
+        }
+        step("ожидаем появления имени песни") {
+            pages.nowPlayingPage()
+                .waitForSongLabelToAppear()
+        }
     }
 }
