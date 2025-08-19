@@ -26,7 +26,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+    
+      - name: Download Allure Parser of XCResults
+        run: |
+          curl -OL https://github.com/eroshenkoam/xcresults/releases/download/1.19.0/xcresults
+          chmod +x xcresults
+      
+      - name: install npm
+        run: brew install npm
         
+      - name: install Allure
+        run: npm install -g allure
+      
       - name: Run test
         run: |
           set -o pipefail
@@ -34,5 +45,13 @@ jobs:
           -project ${{ env.PROJECT }} \
           -scheme ${{ env.SCHEME }} \
           -destination 'platform=iOS Simulator,name=${{ env.SIMULATOR_NAME }},OS=${{ env.SIMULATOR_VERSION }}' \
+          -resultBundlePath ./TestResults.xcresult \
           CODE_SIGNING_ALLOWED='NO' \
           | xcbeautify --renderer github-actions
+          
+      - name: Generate Allure files
+        run: |
+          mkdir ${{ env.ALLURE_RESULTS }}
+          ./xcresults export TestResults.xcresult -o ${{ env.ALLURE_RESULTS }}
+          cd ${{ env.ALLURE_RESULTS }}
+          allure generate --output ../allure-report
